@@ -2,19 +2,25 @@
 
 {% block content %}
     {% if country_stats_list %}
-    <div class="form-group">
-        <label for="country">Select Country</label>
-        <select class="form-control" id="country" ONCHANGE="location = this.selectedIndex !== 0 ? this.options[this.selectedIndex].value : '/';">
-          <option selected>Top Ten</option>
-            {% for country in country_stats_list %}
-            <option value="{% url 'statsApp:country' country.id %}">
-               {{country.country}}
-            </option>
-            {% endfor %}
-        </select>
-      </div>
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="form-group col-sm-10">
+                <label for="country"><strong>Select Country</strong></label>
+                <select class="form-control" id="country" ONCHANGE="location = this.selectedIndex !== 0 ? this.options[this.selectedIndex].value : '/';">
+                  <option selected>Top Ten</option>
+                    {% for country in country_stats_list %}
+                    <option value="{% url 'statsApp:country' country.id %}">
+                       {{country.country}}
+                    </option>
+                    {% endfor %}
+                </select>
+              </div>
+        </div>
+        <canvas id="myChart" width="400" height="400" class="col-sm-6"></canvas>
+    </div>
+    {% else %}
+            <h2 class="text-danger">No data available.</h2>
     {% endif %}
-    <canvas id="myChart" width="400" height="400"></canvas>
 
     <script>
          var ctx = document.getElementById('myChart').getContext('2d');

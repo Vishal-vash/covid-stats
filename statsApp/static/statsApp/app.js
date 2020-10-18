@@ -45,25 +45,25 @@ const loadChartData = (countryNames, countryCases, countryActive, countryRecover
                         beginAtZero: true
                     }
                 }]
-            }
+            },
+            maintainAspectRatio: false,
+            responsive: true
         }
     });
  }
 
-const loadCountryPieData = (countryCases, countryActive, countryRecovered, countryDeaths, countryCritical) => {
+const loadCountryPieData = (countryActive, countryRecovered, countryDeaths, countryCritical) => {
     var config = {
         type: 'pie',
         data: {
             datasets: [{
                 data: [
-                    countryCases,
                     countryActive,
                     countryRecovered,
                     countryDeaths,
                     countryCritical
                 ],
                 backgroundColor: [
-                    'rgba(255, 197, 1, 1)',
                     'rgba(0, 123, 255, 1)',
                     'rgba(40, 167, 69, 1)',
                     'rgba(220, 53, 69, 1)',
@@ -72,7 +72,6 @@ const loadCountryPieData = (countryCases, countryActive, countryRecovered, count
                 label: 'Covid Case Overview'
             }],
             labels: [
-                'Total Cases',
                 'Active Cases',
                 'Recovered Cases',
                 'Total Deaths',

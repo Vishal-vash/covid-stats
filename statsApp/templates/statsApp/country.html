@@ -3,13 +3,35 @@
 {% block content %}
       <div class="country-wrapper">
             <div class="row">
-                  <div class="col-5">
+                  <div class="col-sm-5">
                         <div>
                               <h1>{{country}}</h1>
                         </div>
                          <img src="{{country.flag}}" height="100" />
+                         <ul class="list-group mt-3">
+                             <li class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
+                                 <strong>Total Cases </strong>
+                                 <span class="badge badge-secondary badge-pill">{{country.cases}}</span>
+                             </li>
+                             <li class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center">
+                                  Active Cases
+                                 <span class="badge badge-primary badge-pill">{{country.active}}</span>
+                             </li>
+                             <li class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
+                                 Recovered Cases
+                                 <span class="badge badge-success badge-pill">{{country.recovered}}</span>
+                             </li>
+                             <li class="list-group-item list-group-item-danger d-flex justify-content-between align-items-center">
+                                  Total Deaths
+                                  <span class="badge badge-danger badge-pill">{{country.deaths}}</span>
+                             </li>
+                             <li class="list-group-item list-group-item-warning d-flex justify-content-between align-items-center">
+                                  Critical Cases
+                                  <span class="badge badge-warning badge-pill">{{country.critical}}</span>
+                             </li>
+                         </ul>
                   </div>
-                  <div class="col-5">
+                  <div class="col-sm-5">
                         <canvas id="countryChart" width="400" height="400"></canvas>
                   </div>
             </div>
@@ -17,6 +39,6 @@
 
     <script>
          var ctx = document.getElementById('countryChart').getContext('2d');
-         loadCountryPieData({{country.cases}}, {{country.active}}, {{country.recovered}}, {{country.deaths}}, {{country.critical}})
+         loadCountryPieData({{country.active}}, {{country.recovered}}, {{country.deaths}}, {{country.critical}})
     </script>
 {% endblock content %}
