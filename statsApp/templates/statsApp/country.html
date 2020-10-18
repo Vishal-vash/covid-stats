@@ -1,0 +1,22 @@
+{% extends 'statsApp/base.html' %}
+
+{% block content %}
+      <div class="country-wrapper">
+            <div class="row">
+                  <div class="col-5">
+                        <div>
+                              <h1>{{country}}</h1>
+                        </div>
+                         <img src="{{country.flag}}" height="100" />
+                  </div>
+                  <div class="col-5">
+                        <canvas id="countryChart" width="400" height="400"></canvas>
+                  </div>
+            </div>
+      </div>
+
+    <script>
+         var ctx = document.getElementById('countryChart').getContext('2d');
+         loadCountryPieData({{country.cases}}, {{country.active}}, {{country.recovered}}, {{country.deaths}}, {{country.critical}})
+    </script>
+{% endblock content %}

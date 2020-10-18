@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Covid Stats App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" integrity="sha512-oc9+XSs1H243/FRN9Rw62Fn8EtxjEYWHXRvjS43YtueEewbS6ObfXcJNyohjHqVKFPoXXUxwc+q1K7Dee6vv9g==" crossorigin="anonymous" />
+    {% load static %}
+    <link rel="icon" href="{% static 'statsApp/images/logo.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'statsApp/styles.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+    <script src="{% static 'statsApp/app.js' %}"></script>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">
+            <img src="{% static 'statsApp/images/logo.png' %}" width="30" height="30" alt="" loading="lazy">
+            <span class="mt-2 ml-2">COVID STATS</span>
+        </a>
+        <a class="nav-item" href="/">
+            Home
+        </a>
+    </nav>
+
+    <div class="container main mt-3">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+<footer class="navbar navbar-dark bg-dark mt-3 pt-3">
+  <div class="container">
+      <span class="text-muted float-right"><em>&copy;Rights Reserved</em></span>
+  </div>
+</footer>
+</body>
+</html>
+

@@ -1,0 +1,23 @@
+{% extends 'statsApp/base.html' %}
+
+{% block content %}
+    {% if country_stats_list %}
+    <div class="form-group">
+        <label for="country">Select Country</label>
+        <select class="form-control" id="country" ONCHANGE="location = this.selectedIndex !== 0 ? this.options[this.selectedIndex].value : '/';">
+          <option selected>Top Ten</option>
+            {% for country in country_stats_list %}
+            <option value="{% url 'statsApp:country' country.id %}">
+               {{country.country}}
+            </option>
+            {% endfor %}
+        </select>
+      </div>
+    {% endif %}
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+    <script>
+         var ctx = document.getElementById('myChart').getContext('2d');
+         loadChartData({{country_name_list | safe}}, {{country_case_list}}, {{country_active_list}}, {{country_recovered_list}}, {{country_deaths_list}}, {{country_critical_list}})
+    </script>
+{% endblock content %}

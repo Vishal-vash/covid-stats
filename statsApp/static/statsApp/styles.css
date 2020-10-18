@@ -1,0 +1,14 @@
+body {
+    background-color: beige
+}
+
+.main.container {
+    min-height: 80vh
+}
+
+.nav-item,
+.nav-item:hover,
+.nav-item:focus{
+    color: #fff;
+    text-decoration: none
+}
